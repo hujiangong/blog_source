@@ -23,8 +23,8 @@ title: To汪仔的个人博客搭建指南
 2. hexo init。初始化目录结构
 3. hexo g。生成静态文件
 4. hexo s。启动服务。
-5. http://localhost:4000/。打开网址即可看到hexo本地默认页面。
-6. 接下里便是将hexo网页发布到你的GitHub上。其他的hexo文档可到hexo官网查看。https://hexo.io/zh-cn/。
+5. http://localhost:4000/ 。打开网址即可看到hexo本地默认页面。
+6. 接下里便是将hexo网页发布到你的GitHub上。其他的hexo文档可到hexo官网查看。https://hexo.io/zh-cn/ 。
 
 
 ## 5. 上传本地博客文件到GitHub上 ##
@@ -41,12 +41,29 @@ deploy:
 ![repo地址](https://i.imgur.com/Ric2yeI.png)
 3. 执行"npm install hexo-deployer-git --save"命令安装一些必要的插件
 4. 执行"hexo d -g"部署代码并且上传到你的GitHub地址上。
-5. 打开你的项目https地址，例如我的"https://github.com/hujiangong/hujiangong.github.io.git"，正常的稍等几分钟即可看到你的博客啦！！
+5. 打开你的项目https地址，例如我的" https://github.com/hujiangong/hujiangong.github.io.git "，正常的稍等几分钟即可看到你的博客啦！！
 
-## 6. 更改博客模板
-1. 首先呢，你可以到这个地址挑一个你心仪的博客模板"https://github.com/search?q=hexo+stars%3A%3E1"，我暂用的是"https://github.com/SuperKieran/TKL"，就先拿这个来写了。
-2. 到hexo文件夹的themes目录下，这个就是博客模板的目录，在这里右键"Git Bash Here" 执行"git clone https://github.com/SuperKieran/TKL.git"，当然你的地址你看上的那个模板的地址，然后执行就可以将这个模板down下来。
-3. 然后修改"_config.yml"文件的theme为刚刚down下来的目录文件名，比方说我的就是"theme: TKL"，保存，退出。执行"hexo clean"、"hexo d -g"，OK，过几分钟重新打开你的博客，就会发现模板变啦！
-4. "_config.yml"这个文件可修改的地方，还有你下载的模板可修改的地方还有挺多的，你可以参考官方文档进行修改自定义
+## 6. 更改博客主题
+1. 首先呢，你可以到这个地址挑一个你心仪的博客主题" https://github.com/search?q=hexo+stars%3A%3E1 "（GitHub上有关hexo内容的star排行）或者到hexo的官方主题站" https://hexo.io/themes/ "，我暂用的是" https://github.com/SuperKieran/TKL "，就先拿这个来写了。
+2. 到hexo文件夹的themes目录下，这个就是博客主题的目录，在这里右键"Git Bash Here" 执行"git clone https://github.com/SuperKieran/TKL.git"，当然你的地址你看上的那个主题的地址，然后执行就可以将这个主题down下来。
+3. 然后修改"_config.yml"文件的theme为刚刚down下来的目录文件名，比方说我的就是"theme: TKL"，保存，退出。执行"hexo clean"、"hexo d -g"，OK，过几分钟重新打开你的博客，就会发现主题变啦！
+4. "_config.yml"这个文件可修改的地方，还有你下载的主题可修改的地方还有挺多的，你可以参考官方文档进行修改自定义
 
 > 2018年10月8日 第一阶段教学就到这里啦，虽然写的简单，但是咱售后好呀！
+
+----------
+***------------------------------------- 2018年10月9日更新 ----------------------------------------*** 
+## 7. 同时上传静态代码和hexo源码 ##
+首先呢，问题发生在今天打算在公司的时候进行一些小的修改（我才不会承认是不想干活），才发现GitHub的这个仓库里面只有静态网页文件，没有hexo源码，这样也不可能直接修改静态文件啊，所以只能先好好工作了。嘘... 这样既不便于多台电脑同时修改，而且如果存hexo文件的电脑出现什么无法修复的数据丢失问题，也会把原始文件都丢了，所以解决办法当然就是再上传一份源码到GitHub上。解决办法有两种：
+### 1.新建一个仓库 ###
+1. 第一步不用说就是在GitHub新建一个仓库，我的就叫blog_source了。
+2. 然后将你下载的hexo文件夹下themes目录的博客主题文件夹中的.git文件夹删除。比方说目前用的是TKL主题，在我的themes/TKL/.git这个文件夹删除。因为我们需要把hexo文件夹里面的内容当做一个git文件上传到GitHub库中。git的正常运作是通过.git文件夹中的内容进行更新。TKL文件中的.git目录说明TKL文件中的内容本身就是一个git仓库（我们是从GitHub上直接clone下来的，方便以后博客主题更新以后，我们也可以同步更新），有自己的版本，如果你将它的母目录也当做git仓库去操作就会产生冲突。一种解决办法是把它当做git的子模块处理，但是比较麻烦，暂先直接当做普通文件夹处理，主题以后的更新另想它法。
+3. 在hexo文件夹中右键git bash here，然后执行
+```
+git init 														## 将hexo文件夹初始化成git文件夹
+git add . 														## 新增所有文件
+git commit -m "first commit"									## commit add 操作
+git remote add origin git@github.com:hujiangong/blog_source.git	## 将本地库和GitHub库关联
+git push -u origin master										## push 本地origin分支的内容到远程master分支，首次需要使用-u参数，以后的更新只需要git push origin master即可
+```
+4. 之后就可以在别的电脑上克隆下载代码，然后同步更新了。但是别忘了在不同电脑更新以后，在其他电脑上更新的时候先更新一下本地的代码。git pull 操作。
