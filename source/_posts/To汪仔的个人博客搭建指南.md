@@ -67,3 +67,5 @@ git remote add origin git@github.com:hujiangong/blog_source.git	## 将本地库�
 git push -u origin master										## push 本地origin分支的内容到远程master分支，首次需要使用-u参数，以后的更新只需要git push origin master即可
 ```
 4. 之后就可以在别的电脑上克隆下载代码，然后同步更新了。但是别忘了在不同电脑更新以后，在其他电脑上更新的时候先更新一下本地的代码。git pull 操作。
+### 2.在原本的仓库上新建一个分支 ###
+**暂留给你自己去探索吧。**
