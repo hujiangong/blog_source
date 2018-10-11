@@ -1,38 +1,12 @@
 ---
 title: Hello World
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+一个伟人说过：**成功的人士都有自己的个人博客**。嗯，这个伟人就是我。
 
-## Quick Start
+继去年又买域名，又买虚拟机，还试图自己写一个Java语言的博客web项目，然后成功的一年也没了三五篇博文后，这次学乖了决定还是先用GitHub搭一个免费博客，如果有合心意的域名，就多买一个域名够用了。
 
-### Create a new post
+想想也恰好一年了，去年九月份弄的，现在催续交费用的邮件已经不知道是第几封了。虽然这次重建的目的不纯（我才不会承认是为了泡妹子），但主要不还是自己装B之心不死嘛。
 
-``` bash
-$ hexo new "My New Post"
-```
+为了装X，这次就不能半途而废了，如果你不凑巧闯进来，这个博客更新频率肯定是不会很高的，而且主要也会是些杂七杂八的博文，一点都不值得你放进收藏夹。
 
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)
+生活都这么难了，总要留给自己一点胡说八道的小空间。
